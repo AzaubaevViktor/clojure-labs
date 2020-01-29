@@ -1,8 +1,7 @@
 (ns labs.5)
 
-(defn integrate                                             ; OMG OVERLOADING!!!
-  ([_f max_x step]
-   (let [f (memoize _f)]
+(defn _integrate                                             ; OMG OVERLOADING!!!
+  ([f max_x step]
      (println "Start integrate:")
      (println f max_x step)
      (reduce +
@@ -13,9 +12,15 @@
                )
              )
      )
+  )
+
+(defn integrate
+  ([f max_x step]
+   (_integrate (memoize f) max_x step)
    )
   ([f max_x]
-   (integrate f max_x 0.001))
+   (integrate f max_x 0.001)
+   )
   )
 
 

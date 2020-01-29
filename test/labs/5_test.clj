@@ -19,3 +19,10 @@
   )
 
 (simple-test)
+
+
+(defn super_sin [x] (sin (sin (sin (* x (sin x))))))
+(defn super_puper_sin [x] (super_sin (* (super_sin x) (super_sin (* x (sin x))))))
+
+(println (time (_integrate super_puper_sin Math/PI 0.00001)))
+(println (time (integrate super_puper_sin Math/PI 0.00001)))
