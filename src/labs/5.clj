@@ -2,8 +2,6 @@
 
 (defn _integrate                                             ; OMG OVERLOADING!!!
   ([f max_x step]
-     (println "Start integrate:")
-     (println f max_x step)
      (reduce +
              (for [x (range 0 max_x step)]
                (* (/ step 2)
