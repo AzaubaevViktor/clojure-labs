@@ -239,7 +239,14 @@
                                   (left expr1)
                                   (left expr1))
                                 )
-            ;(or (disjunct? expr1) (conjunct? expr1)) (println "fff") ; Add
+            (or
+              (disjunct? expr1)
+              (conjunct? expr1)) (every?
+                                   #(check_eq (first %) (second %))
+                                   (map vector
+                                        (parts expr1)
+                                        (parts expr2))
+                                               ) ; Add
             )
     false
     )
